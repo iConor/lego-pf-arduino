@@ -6,11 +6,17 @@
 
 #include "Lego.h"
 
+/*
+ *  Empty Constructor
+ */
 Lego::Lego()
 {
 
 }
 
+/*
+ *  Sets the IR transmit pin number, channel number and address space.
+ */
 int Lego::begin(int pin, int ch=0, int addr=0)
 {
   _pin = pin;
@@ -18,6 +24,9 @@ int Lego::begin(int pin, int ch=0, int addr=0)
   _addr = addr & 0x8;
 }
 
+/*
+ *  Transmits a single Extended Mode function.
+ */
 int Lego::writeExtended(int function)
 {
   _payload[0] = _ch;
@@ -27,7 +36,9 @@ int Lego::writeExtended(int function)
 
   return write(payload);
 }
-
+/*
+ *  Transmits a pair of commands using Combo Direct Mode.
+ */
 int Lego::writeComboDirect(int red, int blue)
 {
   _payload[0] = _ch;
@@ -38,6 +49,9 @@ int Lego::writeComboDirect(int red, int blue)
   return write(payload);
 }
 
+/*
+ *  Transmits a command using Single Output Mode.
+ */
 int Lego::writeSingle(int mode, int output, int data)
 {
   _payload[0] = _ch;
@@ -48,6 +62,9 @@ int Lego::writeSingle(int mode, int output, int data)
   return write(payload);
 }
 
+/*
+ *  Transmits a pair of commands using Combo PWM Mode.
+ */
 int Lego::writeComboPWM(int red, int blue)
 {
   _payload[0] = _addr | 0x4 | _ch;
@@ -58,10 +75,17 @@ int Lego::writeComboPWM(int red, int blue)
   return write(payload);
 }
 
+/*
+ *  Transmits the 16-bit payload provided by mode-specific functions.
+ */
 int write(int[] payload)
 {
   return 1;
 }
+
+/*
+ *  Returns the payload's value for the "Longitudinal Redundancy Check".
+ */
 int lrc(int[] payload)
 {
   return payload[0] ^ payload[1] ^ payload[2];

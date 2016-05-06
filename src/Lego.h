@@ -7,14 +7,25 @@
  #include <WProgram.h>
 #endif
 
+/*
+ *  Address Space
+ *  - Default or Extended
+ */
 #define ADDR_DEF  0x0
 #define ADDR_EXT  0x1
 
+/*
+ *  Available Channels
+ */
 #define CH1  0x0
 #define CH2  0x1
 #define CH3  0x2
 #define CH4  0x3
 
+/*
+ *  Extended Mode
+ *  - Functions
+ */
 #define BRK_A     0x0
 #define INC_A     0x1
 #define DEC_A     0x2
@@ -25,16 +36,28 @@
 // #define ALN_TGL   0x7
 // #define RESERVED  0x8
 
+/*
+ *  Combo Direct
+ *  - Output Data
+ */
 #define FLT  0x0
 #define FWD  0x5
 #define REV  0xA
 #define BRK  0xF
 
+/*
+ *  Single Output
+ *  - Modes and Outputs
+ */
 #define PWM    0x0
 #define CSTID  0x1
-#define RED    0x0
-#define BLUE   0x1
+#define RED    0x0 // A
+#define BLUE   0x1 // B
 
+/*
+ *  Single Output & Combo PWM
+ *  - PWM Output Data
+ */
 #define PWM_FLT   0x0
 #define PWM_FWD1  0x1
 #define PWM_FWD2  0x2
@@ -52,6 +75,10 @@
 #define PWM_REV2  0xE
 #define PWM_REV1  0xF
 
+/*
+ *  Single Output (CSTID)
+ *  - Clear/Set/Toggle/Inc/Dec Data
+ */
 #define TGL_FWD   0x0
 #define TGL_DIR   0x1
 #define NINC_PWM  0x2
