@@ -1,7 +1,7 @@
 /*
 LEGO Power Functions protocol for the arduino.
 20-04-2009
-Version 1.1 
+Version 1.1
 
 Changelist:
  - Changed the timing in oscillationWrite from 13us to 9us.
@@ -18,7 +18,11 @@ Roland Wiersma
 #ifndef legopowerfunctions_h
 #define legopowerfunctions_h
 
+#if defined(ARDUINO) && ARDUINO >= 100
 #include <Arduino.h>
+#else
+#include <WProgram.h>
+#endif
 
 //SinglePin & SingleOutput modes
 #define CONTINUOUS 0x2
