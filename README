@@ -1,0 +1,6 @@
+LEGO Power Functions Arduino
+
+Modified ir_Template.cpp for:
+https://github.com/z3t0/Arduino-IRremote
+
+Specific modes not yet implemented.
